@@ -4,7 +4,7 @@ var canvas, W, H, interval, ctx,
     tmpCanvas,
     tmpCtx,
     circles = [],
-    circleCount = 5,
+    circleCount = 40,
     degrees = 0;
 
 module.exports = {
@@ -44,13 +44,20 @@ module.exports = {
 
     generateCircles: function() {
         for (var i = 0; i < circleCount; i++) {
+            var x = W / 2 + Math.floor(Math.random()*40) -20;
+            var y = H / 2 + Math.floor(Math.random()*40) -20;
+
             circles[i] = {
-                x: W / 2,
-                y: H / 2,
-                cx: W / 2 + Math.floor(Math.random()*60) -30,
-                cy: H / 2 + Math.floor(Math.random()*60) -30
+                x: x,
+                y: y,
+                offset: Math.sqrt( ((W/2 - x) * (W/2 - x)) + ((H/2 - y) * (H/2 - y)) ),
+                angle: Math.floor(Math.random()*360) + 1,
+                speed: Math.floor(Math.random()*8),
+                cx: 0,
+                cy: 0
             }
         }
+        console.log(circles);
     },
 
     startDrawing: function() {
@@ -59,22 +66,28 @@ module.exports = {
         }.bind(this), 40)
     },
 
+    updateCircle: function(i) {
+        var circle = circles[i];
+
+        circle.angle += circle.speed;
+        circle.cx = (W / 2) + circle.offset * Math.cos(circle.angle  * (Math.PI / 180));
+        circle.cy = (H / 2) + circle.offset * Math.sin(circle.angle  * (Math.PI / 180));
+
+        circles[i] = circle;
+        return circles[i];
+    },
+
     draw: function() {
         ctx.clearRect(0, 0, W, H);
-        degrees++;
 
         for (var i = 0; i < circleCount; i++) {
-            var circle = circles[i];
+            var circle = this.updateCircle(i);
 
             ctx.beginPath();
-            ctx.ellipse(circle.x, circle.y, i*18 + 400, i*18 + 400, 0, 0, 2 * Math.PI);
+            ctx.ellipse(circle.cx, circle.cy, i*18 + 400, i*18 + 400, 0, 0, 2 * Math.PI);
             ctx.strokeStyle = 'rgba(255, 255, 255,' + 1 + ')';
             ctx.lineWidth = 10;
-            ctx.translate(circle.cx, circle.cy);
             ctx.stroke();
-            ctx.rotate(10 * Math.PI / 180);
-            ctx.translate(-circle.cx, -circle.cy);
         }
-        // console.log('hey');
     }
 }
