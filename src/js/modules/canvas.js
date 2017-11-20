@@ -42,7 +42,7 @@ module.exports = {
             circles[i] = {
                 offset: Math.sqrt( ((W/2 - x) * (W/2 - x)) + ((H/2 - y) * (H/2 - y)) ),
                 angle: Math.floor(Math.random()*360) + 1,
-                speed: Math.floor(Math.random()*8) + 4,
+                speed: Math.floor(Math.random()*8),
                 radius: 400 + (i * 18),
                 rgb: Math.floor(34 + (i * (221 / circleCount))),
                 cx: 0,

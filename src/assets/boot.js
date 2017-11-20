@@ -8,11 +8,11 @@ define([], function() {
             '       display: none;' +
             '}' +
             '.tonal--tone-feature .tonal__main .drop-cap, .tonal--tone-feature .tonal__main .element-pullquote cite {' +
-            '   color: #fff200' +
+            '   color: #4bc6df' +
             '}' +
             '.content--immersive-article .in-body-link--immersive {' +
                 'color: #222;' +
-                'border-bottom-color: #ffb000;' +
+                'border-bottom-color: #4bc6df;' +
             '}' +
             '</style>';
 
