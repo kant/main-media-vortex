@@ -9,3 +9,36 @@
     z-index: 9999;
     background-color: $c-black;
 }
+
+.vortex__copy {
+    position: fixed;
+    z-index: 10000;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 700px;
+    height: fit-content;
+    margin: auto;
+    font-family: 'Guardian Egyptian Web';
+    font-size: 200;
+}
+
+.vortex__headline {
+    color: $c-white;
+    font-size: 120px;
+    line-height: .8;
+    font-weight: 200;
+}
+
+.vortex__standfirst {
+    font-weight: 200;
+    color: $c-blue;
+    font-size: 32px;
+    line-height: 1.2;
+}
+
+.vortex__byline {
+    color: $c-white;
+    display: block;
+}
