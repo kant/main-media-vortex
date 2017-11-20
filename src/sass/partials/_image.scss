@@ -1,0 +1,55 @@
+@font-face {
+    font-family: 'Guardian Egyptian Condensed';
+    src: url('@@assetPath@@/assets/fonts/condmed.woff2') format('woff2'),
+         url('@@assetPath@@/assets/fonts/condmed.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+.road {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 9999;
+    background-color: $c-yellow;
+}
+
+.road__photo {
+    position: fixed;
+    top: 45vh;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 2;
+    background-image: url('@@assetPath@@/assets/images/photo.png');
+    background-size: cover;
+    background-position: center top;
+    background-repeat: no-repeat;
+}
+
+.road__diamonds {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 30vh;
+    background-repeat: no-repeat;
+
+        background-image: url('@@assetPath@@/assets/images/diamonds--mobile.svg');
+        background-size: cover;
+        background-position: center bottom;
+    
+
+    @include mq(tablet) {
+        background-size: 160vw 132vh;
+        background-position: center bottom -34vh;
+        background-image: url('@@assetPath@@/assets/images/diamonds.svg');
+    }
+}
+
+.road__headline,
+.road__standfirst {
+    display: none;
+}
