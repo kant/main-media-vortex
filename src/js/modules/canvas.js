@@ -58,7 +58,7 @@ module.exports = {
             var circle = circles[i];
 
             ctx.beginPath();
-            ctx.ellipse(circle.x, circle.y, i*3, i*3, 0, 0, 2 * Math.PI);
+            ctx.ellipse(circle.x, circle.y, i*14 + 400, i*14 + 400, 0, 0, 2 * Math.PI);
             ctx.strokeStyle = '#ffffff';
             ctx.lineWidth = 10;
             ctx.stroke();
